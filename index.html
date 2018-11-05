@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>SAMPLE</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    .mask {
+      width: 500px;
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+      font-size: 50px;
+      font-weight: bold;
+      animation: showElm .3s cubic-bezier(.165,.84,.44,1) .5s forwards;
+      opacity: 0;
+    }
+.mask:after {
+  top: 0;
+    left: 0;
+    content: '';
+  position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    transform: scaleX(0) translateX(0);
+    transform-origin: left;
+    z-index: 10;
+  animation:openMask .5s cubic-bezier(.895,.03,.685,.22) 0s alternate forwards,closeMask .5s cubic-bezier(.165,.84,.44,1) .5s alternate forwards
+}
+
+@keyframes openMask {
+  0% {
+    transform:scaleX(0) translateX(0)
+    }
+  100% {
+    transform:scaleX(1) translateX(0)
+    }
+  }
+
+@keyframes closeMask {
+  0% {
+    transform:scaleX(1) translateX(0)
+  }
+  100% {
+    transform:scaleX(1) translateX(101%)
+    }
+  }
+
+  @keyframes showElm {
+    0% {
+      opacity:0
+    }
+    100% {
+      opacity:1
+    }
+  }
+    </style>
+  </head>
+  <body>
+    <div class="mask">testtesttesttest</div>
+  </body>
+</html>
